@@ -16,6 +16,7 @@ if (isset($_GET["success"]) && $_GET["success"] == "logout") {
         <span class='alert-icon-1'>&#10004;</span>
         <p>You have successfully logged out!</p>
     </div>";
+    header("refresh:2; url=login.php");
 }
 
 
