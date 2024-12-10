@@ -1,106 +1,112 @@
- <!DOCTYPE html>
- <html lang="en">
+<?php
+// Start the session
+session_start();
+// Check if the user role is set
+if (isset($_SESSION['user_role'])) {
+    // Check user role and redirect accordingly
+    $user_role = strtolower($_SESSION['user_role']);
 
- <head>
-     <meta charset="UTF-8" />
-     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="website icon" type="webp" href="assets/img/csi.webp">
-     <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>" />
-     <title>Login</title>
+    if ($user_role === "admin") {
 
- </head>
+        header('Location: /lms/admin/index.php'); // Change to the actual homepage path
+        exit();
+    } elseif ($user_role === "principal") {
 
- <?php
-    // Start the session
-    session_start();
-    // Check if the user role is set
-    if (isset($_SESSION['user_role'])) {
-        // Check user role and redirect accordingly
-        $user_role = strtolower($_SESSION['user_role']);
+        header('Location: /lms/principal/index.php');
+        exit();
+    } elseif ($user_role === "teacher") {
 
-        if ($user_role === "admin") {
-
-            header('Location: /lms/admin/index.php'); // Change to the actual homepage path
-            exit();
-        } elseif ($user_role === "principal") {
-
-            header('Location: /lms/principal/index.php');
-            exit();
-        } elseif ($user_role === "teacher") {
-
-            header('Location: /lms/faculty/index.php');
-            exit();
-        } elseif ($user_role === "student") {
-            // If logged in, redirect to the homepage
-            header('Location: /lms/index.php'); // Change to the actual homepage path
-            exit(); // Exit after redirection to prevent further code execution
-        }
+        header('Location: /lms/faculty/index.php');
+        exit();
+    } elseif ($user_role === "student") {
+        // If logged in, redirect to the homepage
+        header('Location: /lms/index.php'); // Change to the actual homepage path
+        exit(); // Exit after redirection to prevent further code execution
     }
+}
 
-    // USING SWITCH CASE TO IDENTIFY THE USER TYPE 
-    // if (isset($_SESSION['user_role'])) {
-    //     switch (strtolower($_SESSION['user_role'])) {
-    //         case 'admin':
-    //             header('Location: /lms/admin/index.php');
-    //             break;
-    //         case 'teacher':
-    //             header('Location: /lms/faculty/index.php');
-    //             break;
-    //         case 'student':
-    //             header('Location: /lms/student/index.php');
-    //             break;
-    //         default:
-    //             header('Location: /lms/login.php?error=invalidcredentials');
-    //     }
-    //     exit();
-    // }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="website icon" type="webp" href="assets/img/csi.webp">
+    <title>Login</title>
 
+         <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>" />
+  <style>
+  
+  </style>
+</head>
+
+
+
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+  <div class="logo">
+    <h3>Computer System Institute</h3>
+  </div>
+  <div class="links">
+    <a href="" class="edition">Home</a>
+    <a href="" class="edition">History</a>
+  </div>
+</div>
+    <?php
+        include("includes/alert-notify.php");
     ?>
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Info Section -->
+    <div class="info-section">
+      <h1>Log in to your Account</h1>
+      <p>Dream big, get involved, Aim High with CSI.</p>
+      <p>Learning Management Systems</p>
+      <div class="illustration">
+        <img src="assets/img/csi.webp"  draggable="false" alt="Illustration">
+      </div>
+    </div>
 
+    <!-- Login Section -->
+    <div class="login-section">
+      <h2>Log In</h2>
+      <form action="./includes/login-inc.php" method="POST" onsubmit="showLoading()">
+            <!-- Username Input with Icon -->
+          <div class="input-box">
+            <div class="icon">
+              <img src="assets/img/icons8-user-24.webp" alt="Username Icon">
+            </div>
+            <input type="text" name="username" placeholder="Username" autocomplete="off" autofocus required>
+          </div>
 
- <body>
-     <div class="container">
-         <?php
-            include("includes/alert-notify.php");
-            ?>
-         <div class="row text-center">
-             <div class="col-md ml-xl">
-                 <img src="./assets/img/student-login-logo.svg" alt="Login Logo" draggable="false">
-             </div>
-             <div class="col-md mr-xl">
-                 <!-- login form -->
-                 <form action="./includes/login-inc.php" method="POST" onsubmit="showLoading()">
-                     <h2>Login</h2>
-                     <div class="input-box">
-                         <span class="icon">
-                             <img src="assets/img/icons8-user-24.webp" alt="user icon" /></span>
-                         <input type="text" placeholder="Username" name="username" required autocomplete="off" autofocus />
-                     </div>
-                     <div class="input-box">
-                         <span class="icon">
-                             <img src="assets/img/icons8-lock-24.webp" alt="lock icon" /></span>
-                         <input type="password" placeholder="Password" name="password" required autocomplete="off" autofocus />
-                     </div>
-                     <button type="submit" name="submit">Login</button>
-                 </form>
+          <!-- Password Input with Icon -->
+          <div class="input-box">
+            <div class="icon">
+              <img src="assets/img/icons8-lock-24.webp" alt="Password Icon">
+            </div>
+            <input type="password" name="password" placeholder="Password" autocomplete="off" required>
+          </div>
+        <button type="submit" name="submit">Login</button>
+      </form>
+    </div>
+  </div>
 
-             </div>
-         </div>
-     </div>
- </body>
-
- </html>
-
- <script>
-     function showLoading() {
+  <!-- Interactive Background Animation -->
+  <script>
+         function showLoading() {
          // Redirect to the loading page
          window.location.href = "loading.php";
      }
- </script>
- <?php
-    require_once('includes/footer.php');
-    ?>
+    document.body.addEventListener("mousemove", function(e) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
 
-
- <!-- Footer included directly on the page -->
+      document.body.style.background = `linear-gradient(135deg, 
+        rgb(${74 + x * 50}, ${235 + y * 20}, ${213 + y * 40}), 
+        rgb(${172 - y * 40}, ${182 + x * 40}, ${229 - x * 20}))`;
+    });
+  </script>
+</body>
+</html>
