@@ -1,8 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Gradient background */
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #74ebd5,
+    #acb6e5
+  ); /* Gradient background */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -68,7 +72,8 @@ body {
     gap: 10px;
   }
 
-  .info-section, .login-section {
+  .info-section,
+  .login-section {
     flex: none;
     width: 100%;
     text-align: center;
@@ -122,7 +127,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -223,9 +229,106 @@ body {
   }
 }
 
-
 /* Login Section */
 .login-section input:focus {
   border-color: #3498db;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* alert modal css */
+.notification-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d1e7dd;
+  color: #842029;
+  padding: 15px 20px;
+  border-left: 5px solid #badbcc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeInOut 2.5s ease-in-out forwards;
+}
+
+.alert-icon {
+  font-size: 20px;
+  color: #842029;
+}
+
+.notification-alert p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* DASDASDASDS */
+
+.notification-alert-1 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  padding: 15px 20px;
+  border-left: 5px solid #badbcc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeInOut 2.5s ease-in-out forwards;
+}
+
+.alert-icon-1 {
+  font-size: 20px;
+  color: #0f5132;
+}
+
+.notification-alert p {
+  margin: 0;
+  font-weight: bold;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }
