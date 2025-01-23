@@ -61,7 +61,8 @@ if (isset($_SESSION['user_role'])) {
   <div class="container">
     <!-- Info Section -->
     <div class="info-section">
-      <h1>Log in to your Account</h1>
+      <!-- <h1>Log in to your Account</h1> -->
+        <h1>Learning Management System</h1>
       <p>Dream big, get involved, Aim High with CSI.</p>
       <p>Learning Management Systems</p>
       <div class="illustration">
@@ -71,7 +72,7 @@ if (isset($_SESSION['user_role'])) {
 
     <!-- Login Section -->
     <div class="login-section">
-      <h2>Log In</h2>
+      <h2>Log in to your Account</h2>
       <form action="./includes/login-inc.php" method="POST" onsubmit="showLoading()">
             <!-- Username Input with Icon -->
           <div class="input-box">

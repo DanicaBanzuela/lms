@@ -216,8 +216,8 @@ body {
 }
 
 /* Media Query to make icon smaller on mobile view */
-@media (max-width: 1380px) {
-  .input-box .icon {
+@media (max-width: 780px) {
+  .input-box .icon img{
     width: 18px; /* Smaller icon size for mobile */
     height: 18px; /* Smaller icon size for mobile */
   }
