@@ -6,7 +6,7 @@ if (isset($_SESSION['user_role'])) {
   // Check user role and redirect accordingly
   $user_role = strtolower($_SESSION['user_role']);
 
-  if ($user_role === "admin") {
+  if ($user_role === "registrar") {
 
     header('Location: /lms/admin/index.php'); // Change to the actual homepage path
     exit();
@@ -30,88 +30,131 @@ if (isset($_SESSION['user_role'])) {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="website icon" type="webp" href="assets/img/csi.webp">
   <title>Login</title>
 
-  <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>" />
-  <style>
+  <!-- MDB CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"> <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+  <style>
+    .illustration img {
+      max-width: 300px;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 
-
-
 <body>
-  <!-- Navigation Bar -->
-  <div class="navbar">
-    <div class="logo">
-      <h3>Computer Systems Institute</h3>
-    </div>
-    <div class="links">
-      <a href="" class="edition">Home</a>
-      <a href="" class="edition">History</a>
-    </div>
-  </div>
-  <?php
-  include("includes/alert-notify.php");
-  ?>
 
-  <!-- Main Content -->
-  <div class="container">
-    <!-- Info Section -->
-    <div class="info-section">
-      <!-- <h1>Log in to your Account</h1> -->
-        <h1>Learning Management System</h1>
-      <p>Dream big, get involved, Aim High with CSI.</p>
-      <p>Learning Management Systems</p>
-      <div class="illustration">
-        <img src="assets/img/csi.webp" draggable="false" alt="Illustration">
+  <div class="vh-100" style="background-color: #212529;">
+
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-flex justify-content-center align-items-center text-center">
+                <div class="d-none d-md-block illustration">
+                  <p class="h3 fw-bold text-black mb-3 ms-4">Computer Systems Institute</p>
+                  <p class="h6 fw-normal text-black mb-4 ms-4"><i>Dream big, get involved, Aim High with CSI.</i></p>
+
+                  <img src="assets/img/csi.webp"
+                    alt="login form" class="img-fluid" style="width:200px; border-radius: 1rem 0 0 1rem;" />
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <form action="./includes/login-inc.php" method="POST" onsubmit="showLoading()">
+
+                    <div class="d-flex align-items-center mb-5 pb-1">
+                      <!-- Show image only on mobile (hide on large screens) -->
+                      <img src="assets/img/csi.webp"
+                        alt="login form"
+                        class="img-fluid me-4 d-inline d-lg-none"
+                        style="width:50px; border-radius: 1rem 0 0 1rem;" />
+
+                      <!-- Show cubes only on desktop (hide on mobile) -->
+                      <i class="fas fa-cubes fa-2x me-3 d-none d-lg-inline"
+                        style="color: #ff6219;"></i>
+
+                      <span class="h2 fw-bold mb-0">Learning Management System</span>
+                    </div>
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login into your account</h5>
+
+                    <!-- Email Input -->
+                    <div class="form-outline mb-4">
+                      <input type="text" name="username" class="form-control form-control-lg" autocomplete="off" required />
+                      <label class="form-label">Username</label>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="form-outline mb-4">
+                      <input type="password" name="password" class="form-control form-control-lg" autocomplete="off" required />
+                      <label class="form-label">Password</label>
+                    </div>
+
+                    <!-- Login Button -->
+                    <div class="pt-1 mb-5">
+                      <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                    </div>
+
+                    <?php
+                    include("includes/alert-notify.php");
+                    ?>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Login Section -->
-    <div class="login-section">
-      <h2>Log in to your Account</h2>
-      <form action="./includes/login-inc.php" method="POST" onsubmit="showLoading()">
-        <!-- Username Input with Icon -->
-        <div class="input-box">
-          <div class="icon">
-            <img src="assets/img/icons8-user-24.webp" alt="Username Icon">
-          </div>
-          <input type="text" name="username" placeholder="Username" autocomplete="off" autofocus required>
-        </div>
-
-        <!-- Password Input with Icon -->
-        <div class="input-box">
-          <div class="icon">
-            <img src="assets/img/icons8-lock-24.webp" alt="Password Icon">
-          </div>
-          <input type="password" name="password" placeholder="Password" autocomplete="off" required>
-        </div>
-        <button type="submit" name="submit">Login</button>
-      </form>
-    </div>
   </div>
 
-  <!-- Interactive Background Animation -->
+  <!-- MDB JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+
   <script>
     function showLoading() {
       // Redirect to the loading page
       window.location.href = "loading.php";
 
     }
-    document.body.addEventListener("mousemove", function(e) {
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
+    document.addEventListener("DOMContentLoaded", function() {
+      const body = document.body;
 
-      document.body.style.background = `linear-gradient(135deg, 
-        rgb(${74 + x * 50}, ${235 + y * 20}, ${213 + y * 40}), 
-        rgb(${172 - y * 40}, ${182 + x * 40}, ${229 - x * 20}))`;
+      document.body.addEventListener("mousemove", function(e) {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        body.style.background = `linear-gradient(135deg, 
+        rgb(${60 + x * 50}, ${150 + y * 50}, ${220 - y * 40}), 
+        rgb(${20 + y * 50}, ${100 + x * 80}, ${180 - x * 30}))`;
+      });
+
+      mdb.Input.init(document.querySelectorAll('.form-outline'));
+      mdb.Ripple.init(document.querySelectorAll('.btn'));
     });
   </script>
+
+
 </body>
 
 </html>
