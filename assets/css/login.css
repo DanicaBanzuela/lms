@@ -86,16 +86,16 @@ body {
     padding: 20px;
   }
 }
-
-/* Main Content */
+/* 
+Main Content
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 20px;
-  height: calc(100vh - 60px); /* Adjust for navbar height */
-}
+  height: calc(100vh - 60px);  
+} 
 
 /* Info Section */
 .info-section {
@@ -223,7 +223,7 @@ body {
 
 /* Media Query to make icon smaller on mobile view */
 @media (max-width: 780px) {
-  .input-box .icon img{
+  .input-box .icon img {
     width: 18px; /* Smaller icon size for mobile */
     height: 18px; /* Smaller icon size for mobile */
   }

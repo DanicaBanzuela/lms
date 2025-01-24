@@ -33,6 +33,7 @@ if (isset($_SESSION['user_role'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="website icon" type="webp" href="assets/img/csi.webp">
+     <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>" />
   <title>Login</title>
 
   <!-- MDB CSS -->
@@ -62,6 +63,9 @@ if (isset($_SESSION['user_role'])) {
 
 <body>
 
+                    <?php
+                    include("includes/alert-notify.php");
+                    ?>
   <div class="vh-100" style="background-color: #212529;">
 
     <div class="container py-5 h-100">
@@ -71,7 +75,7 @@ if (isset($_SESSION['user_role'])) {
             <div class="row g-0">
               <div class="col-md-6 col-lg-5 d-flex justify-content-center align-items-center text-center">
                 <div class="d-none d-md-block illustration">
-                  <p class="h3 fw-bold text-black mb-3 ms-4">Computer Systems Institute</p>
+                  <p class="h3 fw-bold text-black mb-3">Computer Systems Institute</p>
                   <p class="h6 fw-normal text-black mb-4 ms-4"><i>Dream big, get involved, Aim High with CSI.</i></p>
 
                   <img src="assets/img/csi.webp"
@@ -114,10 +118,6 @@ if (isset($_SESSION['user_role'])) {
                     <div class="pt-1 mb-5">
                       <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Login</button>
                     </div>
-
-                    <?php
-                    include("includes/alert-notify.php");
-                    ?>
                   </form>
                 </div>
               </div>
