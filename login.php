@@ -33,7 +33,7 @@ if (isset($_SESSION['user_role'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="website icon" type="webp" href="assets/img/csi.webp">
-     <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>" />
   <title>Login</title>
 
   <!-- MDB CSS -->
@@ -63,9 +63,9 @@ if (isset($_SESSION['user_role'])) {
 
 <body>
 
-                    <?php
-                    include("includes/alert-notify.php");
-                    ?>
+  <?php
+  include("includes/alert-notify.php");
+  ?>
   <div class="vh-100" style="background-color: #212529;">
 
     <div class="container py-5 h-100">
@@ -91,14 +91,22 @@ if (isset($_SESSION['user_role'])) {
                       <!-- Show image only on mobile (hide on large screens) -->
                       <img src="assets/img/csi.webp"
                         alt="login form"
-                        class="img-fluid me-4 d-inline d-lg-none"
+                        class="img-fluid me-3 d-inline d-lg-none"
                         style="width:50px; border-radius: 1rem 0 0 1rem;" />
 
-                      <!-- Show cubes only on desktop (hide on mobile) -->
-                      <i class="fas fa-cubes fa-2x me-3 d-none d-lg-inline"
-                        style="color: #ff6219;"></i>
+                      <!-- desktop design -->
+                      <div class="d-none d-lg-inline">
+                        <i class="fas fa-cubes fa-2x me-3"
+                          style="color: #ff6219;"></i>
+                        <span class="h3 fw-bold mb-0">Learning Management System</span>
+                      </div>
 
-                      <span class="h2 fw-bold mb-0">Learning Management System</span>
+                      <!-- mobile design  -->
+                      <div class="text-center d-inline d-lg-none">
+                        <span class="fw-bold mb-0 d-block">Computer Systems Institute</span>
+                        <small class="fw-bold mb-0 d-block">Learning Management System</small>
+                      </div>
+
                     </div>
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login into your account</h5>
 
@@ -121,6 +129,9 @@ if (isset($_SESSION['user_role'])) {
                   </form>
                 </div>
               </div>
+
+
+
             </div>
           </div>
         </div>
