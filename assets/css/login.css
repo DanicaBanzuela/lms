@@ -246,6 +246,23 @@ Main Content
   animation: fadeInOut 2.5s ease-in-out forwards;
 }
 
+.notification-success {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeInOut 2.5s ease-in-out forwards;
+}
+
 .alert-icon {
   font-size: 20px;
   color: #842029;
@@ -277,24 +294,6 @@ Main Content
 }
 
 /* DASDASDASDS */
-
-.notification-alert-1 {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #d1e7dd;
-  color: #0f5132;
-  padding: 15px 20px;
-  border-left: 5px solid #badbcc;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  animation: fadeInOut 2.5s ease-in-out forwards;
-}
 
 .alert-icon-1 {
   font-size: 20px;

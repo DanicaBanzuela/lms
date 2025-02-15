@@ -37,7 +37,8 @@ if (isset($_SESSION['user_role'])) {
   <title>Login</title>
 
   <!-- MDB CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"> <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css">
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <style>
@@ -45,6 +46,20 @@ if (isset($_SESSION['user_role'])) {
       max-width: 300px;
       filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
       animation: float 3s infinite ease-in-out;
+      /* margin-right: 50px; */
+    }
+
+    .width-size {
+      width: 100%;
+      max-width: 380px;
+      margin-left: 30px;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     @keyframes float {
@@ -62,79 +77,62 @@ if (isset($_SESSION['user_role'])) {
 </head>
 
 <body>
-
   <?php
   include("includes/alert-notify.php");
   ?>
-  <div class="vh-100" style="background-color: #212529;">
+  <div class="vh-100 d-flex align-items-center justify-content-center" style="background-color: #212529;">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
 
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-xl-10">
-          <div class="card" style="border-radius: 1rem;">
-            <div class="row g-0">
-              <div class="col-md-6 col-lg-5 d-flex justify-content-center align-items-center text-center">
-                <div class="d-none d-md-block illustration">
-                  <p class="h3 fw-bold text-black mb-3">Computer Systems Institute</p>
-                  <p class="h6 fw-normal text-black mb-4 ms-4"><i>Dream big, get involved, Aim High with CSI.</i></p>
-
-                  <img src="assets/img/csi.webp"
-                    alt="login form" class="img-fluid" style="width:200px; border-radius: 1rem 0 0 1rem;" />
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                <div class="card-body p-4 p-lg-5 text-black">
-                  <form action="./includes/login-inc.php" method="POST" onsubmit="showLoading()">
-
-                    <div class="d-flex align-items-center mb-5 pb-1">
-                      <!-- Show image only on mobile (hide on large screens) -->
-                      <img src="assets/img/csi.webp"
-                        alt="login form"
-                        class="img-fluid me-3 d-inline d-lg-none"
-                        style="width:50px; border-radius: 1rem 0 0 1rem;" />
-
-                      <!-- desktop design -->
-                      <div class="d-none d-lg-inline">
-                        <i class="fas fa-cubes fa-2x me-3"
-                          style="color: #ff6219;"></i>
-                        <span class="h3 fw-bold mb-0">Learning Management System</span>
-                      </div>
-
-                      <!-- mobile design  -->
-                      <div class="text-center d-inline d-lg-none">
-                        <span class="fw-bold mb-0 d-block">Computer Systems Institute</span>
-                        <small class="fw-bold mb-0 d-block">Learning Management System</small>
-                      </div>
-
-                    </div>
-                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login into your account</h5>
-
-                    <!-- Email Input -->
-                    <div class="form-outline mb-4">
-                      <input type="text" name="username" class="form-control form-control-lg" autocomplete="off" required />
-                      <label class="form-label">Username</label>
-                    </div>
-
-                    <!-- Password Input -->
-                    <div class="form-outline mb-4">
-                      <input type="password" name="password" class="form-control form-control-lg" autocomplete="off" required />
-                      <label class="form-label">Password</label>
-                    </div>
-
-                    <!-- Login Button -->
-                    <div class="pt-1 mb-5">
-                      <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Login</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-
-
-            </div>
+        <!-- Left Side - CSI Information -->
+        <div class="col-md-6 text-center text-white mb-3">
+          <div class="d-none d-md-block illustration">
+            <h3 class="fw-bold">Computer Systems Institute</h3>
+            <p class="h6 fw-normal mb-4"><i>Dream big, get involved, Aim High with CSI.</i></p>
+            <img src="assets/img/csi.webp" alt="CSI Logo" class="img-fluid" style="width:280px;">
           </div>
         </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="col-md-5">
+          <div class="login-container">
+            <!-- desktop design -->
+            <div class="d-none d-lg-inline text-center mb-5 mt-3">
+              <h4 class="text-dark fw-bold mb-0">Learning Management System</h4>
+            </div>
+            <!-- mobile design  -->
+            <div class="d-flex align-items-center mb-5 pb-1">
+              <img src="assets/img/csi.webp"
+                alt="login form"
+                class="img-fluid me-3 d-inline d-lg-none"
+                style="width:50px; border-radius: 1rem 0 0 1rem;" />
+              <div class="text-center d-inline d-lg-none">
+                <p class="fw-bold mb-0 d-block">Learning Management System</p>
+                <p class="fw-bold mb-0 d-block">Computer Systems Institute</p>
+              </div>
+            </div>
+            <!-- FORM ELEMENT  -->
+            <form action="./includes/login-inc.php" method="POST" onsubmit="showLoading()">
+              <h6 class="fw-normal mb-3" style="letter-spacing: 1px;">Login into your account</h6>
+              <!-- Username -->
+              <div class="form-outline mb-4">
+                <input type="text" name="username" class="form-control form-control-lg" autocomplete="off" required />
+                <label class="form-label">Username</label>
+              </div>
+
+              <!-- Password -->
+              <div class="form-outline mb-4">
+                <input type="password" name="password" class="form-control form-control-lg" autocomplete="off" required />
+                <label class="form-label">Password</label>
+              </div>
+
+              <!-- Login Button -->
+              <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block mb-4">Login</button>
+            </form>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
