@@ -72,15 +72,15 @@ $result = $mySQLFunction->getStudentStrandAndSectionaAlsoAdviser($_SESSION['stu_
                                 echo "<small class='fw-semibold pb-2'>" . htmlspecialchars($payload["strand_desc"]) . " </small>";
 
                                 ?>
-                            <?php endif; ?>
                             </div>
                             <div type="button"
-                                class="btn btn-sm fw-bold d-flex align-items-center bg-success text-white">
-                                <a class="nav-link active" href="index.php?page=student_subject"><i class="bi bi-journals"></i>
-                                    View Subjects
-                                </a>
-                            </div>
-                        </div>
+                            class="btn btn-sm fw-bold d-flex align-items-center bg-success text-white">
+                            <a class="nav-link active" href="index.php?page=student_subject"><i class="bi bi-journals"></i>
+                            View Subjects
+                        </a>
+                    </div>
+                    <?php endif; ?>
+                </div>
 
                         <!-- Main Student and Adviser Info -->
                         <div class="row align-items-center  border-bottom pt-3">

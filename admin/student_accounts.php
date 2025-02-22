@@ -180,9 +180,12 @@ $mySQLFunction->disconnect();
                                     }
                                 } else {
                                     echo '<tr>
-                                <td colspan="10" class="text-center">Student not found.<br>
-                                </td>
-                              </tr>';
+                                    <td class="text-center text-muted">-</td>
+                                    <td class="text-center text-muted">-</td>
+                                    <td class="text-center text-muted">-</td>
+                                    <td class="text-center text-muted">-</td>
+                                    <td class="text-center text-muted">-</td>
+                                    </tr>';
                                 }
 
                                 echo '</tbody>';
